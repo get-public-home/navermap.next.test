@@ -11,5 +11,5 @@ export default function useMap({ componentName }) {
     );
   }
 
-  return map;
+  return naverMap;
 }

@@ -1,22 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  home: {
+  house: {
     loading: false,
     data: null,
     error: null,
   },
 };
 
-const naverSlice = createSlice({
+const houseSlice = createSlice({
   name: "happyhouseJson",
   initialState,
   reducers: {
-    setNaver(state, action) {
-      state.naver = action.payload;
+    setHouseData(state, action) {
+      state.home = action.payload;
     },
   },
 });
 
-export const { setNaver } = naverSlice.actions;
+export const { setHomeData } = naverSlice.actions;
 export default naverSlice.reducer;

@@ -2,6 +2,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import NaverMap from "../components/NaverMap";
+import Header from "../container/Home/Header";
 
 export default function Home() {
   return (
@@ -17,7 +18,9 @@ export default function Home() {
         ></script>
       </Head>
       <main>
-        <NaverMap />
+        <NaverMap>
+          <Header />
+        </NaverMap>
       </main>
     </div>
   );
