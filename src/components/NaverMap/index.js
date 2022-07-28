@@ -1,6 +1,6 @@
 import React, { createContext, forwardRef, useEffect, useState } from "react";
 
-export const MapContext = createContext(null);
+export const NaverMapContext = createContext(null);
 
 // eslint-disable-next-line react/display-name
 const NaverMap = forwardRef((props, ref) => {
@@ -25,7 +25,9 @@ const NaverMap = forwardRef((props, ref) => {
         id={props.id}
         style={{ width: props.width, height: props.height }}
       ></div>
-      <MapContext.Provider value={map}>{props.children}</MapContext.Provider>
+      <NaverMapContext.Provider value={map}>
+        {props.children}
+      </NaverMapContext.Provider>
     </>
   );
 });
