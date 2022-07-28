@@ -1,10 +1,11 @@
 import React, { createContext, forwardRef, useEffect, useState } from "react";
 
+export const MapContext = createContext(null);
+
 // eslint-disable-next-line react/display-name
 const NaverMap = forwardRef((props, ref) => {
   const [map, setMap] = useState(null);
   const [renderAfter, setRenderAfter] = useState(false);
-  const MapContext = createContext(map);
   useEffect(() => setRenderAfter(true), []);
 
   useEffect(() => {
@@ -14,6 +15,7 @@ const NaverMap = forwardRef((props, ref) => {
         zoom: props.zoom,
       };
       const map = new naver.maps.Map(props.id, mapOptions);
+      setMap(map);
     }
   }, [renderAfter]);
   return (
@@ -23,7 +25,7 @@ const NaverMap = forwardRef((props, ref) => {
         id={props.id}
         style={{ width: props.width, height: props.height }}
       ></div>
-      <MapContext.Provider>{props.children}</MapContext.Provider>
+      <MapContext.Provider value={map}>{props.children}</MapContext.Provider>
     </>
   );
 });
